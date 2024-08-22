@@ -32,10 +32,10 @@
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
-uint8_t retUSBH; /* Return value for USBH */
-char USBHPath[4]; /* USBH logical drive path */
-FATFS USBHFatFS; /* File system object for USBH logical drive */
-FIL USBHFile; /* File object for USBH */
+//uint8_t retUSBH; /* Return value for USBH */
+//char USBHPath[4]; /* USBH logical drive path */
+//FATFS USBHFatFS; /* File system object for USBH logical drive */
+//FIL USBHFile; /* File object for USBH */
 uint32_t byteswritten, bytesread;
 /* USER CODE END PV */
 
@@ -123,7 +123,7 @@ static void USBH_UserProcess  (USBH_HandleTypeDef *phost, uint8_t id)
 
   f_mount(&USBHFatFS, (TCHAR *)USBHPath, 0);
 
-  f_open(&USBHFile, "root.txt",  FA_CREATE_ALWAYS | FA_WRITE);
+  f_open(&USBHFile, "test.txt",  FA_CREATE_ALWAYS | FA_WRITE);
 
   char text[]="This file should be located root directory.\n";
   f_write(&USBHFile, text, sizeof(text), (void *)&byteswritten);
@@ -153,4 +153,3 @@ static void USBH_UserProcess  (USBH_HandleTypeDef *phost, uint8_t id)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
